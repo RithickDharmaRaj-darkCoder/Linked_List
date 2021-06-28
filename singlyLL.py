@@ -8,7 +8,7 @@ class creatingnode():
         self.data = data
         self.linkto = None
 
-class linkedlist():
+class S_linkedlist():
     def __init__(self,object_name):
         self.name = object_name
         self.head = None
