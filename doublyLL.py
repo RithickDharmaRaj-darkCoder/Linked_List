@@ -64,3 +64,9 @@ class D_LinkedList():
                 newnode.linktoP = self.tail
                 self.tail = newnode
                 newnode.linktoP.linktoN = newnode
+
+    def add_LL_empty(self,data):
+        if self.head is not None:
+            print(f'{self.name} : Linked List is not Empty!')
+        else:
+            self.add_at_starting(data)
