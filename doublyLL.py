@@ -70,3 +70,25 @@ class D_LinkedList():
             print(f'{self.name} : Linked List is not Empty!')
         else:
             self.add_at_starting(data)
+
+    def add_after_node(self,data,x):
+        if self.head is None:
+            print('Linked List is Empty!')
+        else:
+            h = self.head
+            while h is not None:
+                if h.data == x and h.linktoN == None:
+                    self.add_at_ending(data)
+                    break
+                elif h.data != x and h.linktoN is not None:
+                    h = h.linktoN
+                elif h.data != x and h.linktoN is None:
+                    print(f'{x} is not in the Linked List!')
+                    break
+                elif h.data == x and h.linktoN is not None:
+                    newnode = create_node(data)
+                    newnode.linktoN = h.linktoN
+                    h.linktoN = newnode
+                    newnode.linktoP = newnode.linktoN.linktoP
+                    newnode.linktoN.linktoP = newnode
+                    break
