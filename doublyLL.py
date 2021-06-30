@@ -114,3 +114,16 @@ class D_LinkedList():
                     newnode.linktoN = newnode.linktoP.linktoN
                     newnode.linktoP.linktoN = newnode
                     break
+
+    def del_at_starting(self):
+        if self.head is None:
+            print(f'{self.name} : Linked List is already Empty!')
+        else:
+            if self.head.linktoN is None:
+                self.head = None
+                self.tail = None
+                print(f'{self.name} : Linked List is made Empty!')
+            else:
+                h = self.head
+                self.head = h.linktoN
+                h.linktoN.linktoP = h.linktoP
