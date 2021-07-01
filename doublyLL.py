@@ -140,3 +140,25 @@ class D_LinkedList():
                 t = self.tail
                 self.tail = t.linktoP
                 t.linktoP.linktoN = t.linktoN
+
+    def del_node(self, x):
+        if self.head is None:
+            print(f'{self.name} : Linked List is already Empty!')
+        elif self.head is not None:
+            h = self.head
+            t = self.tail
+            if h.data == x:
+                self.del_at_starting()
+            elif t.data == x:
+                self.del_at_ending()
+            else:
+                while h is not None:
+                    if h.linktoN is None and h.data != x:
+                        print(f'{self.name} :{x} is not in the Linked List!')
+                        break
+                    elif h.linktoN.data != x:
+                        h = h.linktoN
+                    elif h.linktoN.data == x:
+                        h.linktoN.linktoN.linktoP = h.linktoN.linktoP
+                        h.linktoN = h.linktoN.linktoN
+                        break
