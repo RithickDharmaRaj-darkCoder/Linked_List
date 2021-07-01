@@ -36,4 +36,13 @@ class C_S_linkedlist:
             self.head = newnode
 
     def add_at_starting(self,data):
-        pass
+        newnode = create_node(data)
+        newnode.next = self.head
+        h = self.head
+        if not h:
+            newnode.next = newnode
+        else:
+            while h.next != self.head:
+                h = h.next
+            h.next = newnode
+        self.head = newnode
