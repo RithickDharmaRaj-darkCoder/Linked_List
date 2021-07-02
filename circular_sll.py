@@ -63,8 +63,14 @@ class C_S_linkedlist:
         h = self.head
         while h:
             if h.data == x and h.next != self.head:
+                newnode = create_node(data)
+                newnode.next = h.next
+                h.next = newnode
                 break
             if h.data == x and h.next == self.head:
+                newnode = create_node(data)
+                newnode.next = self.head
+                h.next = newnode
                 break
             if h.data !=x and h.next == self.head:
                 print(f'{self.name} : {x} is not in the linked list')
@@ -72,4 +78,23 @@ class C_S_linkedlist:
             else:
                 h = h.next
         else:
-            print(f'{self.name} : Linked List is Empty!')
+            print(f'{self.name} : Linked List is Empty! ')
+
+    def add_before_node(self,data,x):
+        h = self.head
+        if not h:
+            print(f'{self.name} : Linked List is Empty! ')
+        elif h.data == x:
+            self.add_at_starting(data)
+        else:
+            while h:
+                if h.next.data !=x and h.next.next == self.head:
+                    print(f'{self.name} : {x} is not in the linked list')
+                    break
+                elif h.next.data == x:
+                    newnode = create_node(data)
+                    newnode.next = h.next
+                    h.next = newnode
+                    break
+                else:
+                    h = h.next
