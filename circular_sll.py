@@ -46,3 +46,15 @@ class C_S_linkedlist:
                 h = h.next
             h.next = newnode
         self.head = newnode
+
+    def add_at_ending(self,data):
+        newnode = create_node(data)
+        newnode.next = self.head
+        h = self.head
+        if not h:
+            newnode.next = newnode
+            self.head = newnode
+        else:
+            while h.next != self.head:
+                h = h.next
+            h.next = newnode
