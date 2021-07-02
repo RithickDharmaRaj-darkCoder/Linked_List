@@ -58,3 +58,18 @@ class C_S_linkedlist:
             while h.next != self.head:
                 h = h.next
             h.next = newnode
+
+    def add_after_node(self,data,x):
+        h = self.head
+        while h:
+            if h.data == x and h.next != self.head:
+                break
+            if h.data == x and h.next == self.head:
+                break
+            if h.data !=x and h.next == self.head:
+                print(f'{self.name} : {x} is not in the linked list')
+                break
+            else:
+                h = h.next
+        else:
+            print(f'{self.name} : Linked List is Empty!')
