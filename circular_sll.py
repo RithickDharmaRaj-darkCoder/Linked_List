@@ -98,3 +98,21 @@ class C_S_linkedlist:
                     break
                 else:
                     h = h.next
+
+    def del_at_starting(self):
+        h = self.head
+        if h:
+            if h.next == self.head:
+                self.head = None
+                print(f'{self.name} : Linked List is made Empty! ')
+            else:
+                root = h.next
+                while h:
+                    if h.next == self.head:
+                        h.next = root
+                        break
+                    else:
+                        h = h.next
+                self.head = root
+        else:
+            print(f'{self.name} : Linked List is already Empty! ')
