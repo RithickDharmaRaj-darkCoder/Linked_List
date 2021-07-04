@@ -17,7 +17,7 @@ class C_S_linkedlist:
         self.tail = None
 
     def traversal_fd(self):
-        print(f'{self.name} : ',end="")
+        print(f'{self.name}-Tf : ',end="")
         h = self.head
         if h:
             while h.next:
@@ -31,7 +31,7 @@ class C_S_linkedlist:
             print(f"Linked List is Empty!")
 
     def traversal_bw(self):
-        print(f'{self.name} : ',end="")
+        print(f'{self.name}-Tb : ',end="")
         t = self.tail
         if t:
             while t.prev:
@@ -42,7 +42,7 @@ class C_S_linkedlist:
                     print(f'{t.data} -> ...')
                     break
         else:
-            print(f"{self.name} : Linked List is Empty!")
+            print(f"Linked List is Empty!")
 
     def add_at_starting(self,data):
         newnode = create_node(data)
@@ -125,3 +125,23 @@ class C_S_linkedlist:
                         break
                     else:
                         t = t.prev
+
+    def del_at_starting(self):
+        h = self.head
+        if not h:
+            print(f"{self.name} : Linked List is already Empty!")
+        else:
+            if h.next == self.head:
+                self.head = None
+                self.tail = None
+                print(f"{self.name} : Linked List is made Empty!")
+            else:
+                root = h.next
+                root.prev = h.prev
+                while h.next:
+                    if h.next != self.head:
+                        h = h.next
+                    else:
+                        h.next = root
+                        break
+                self.head = root
