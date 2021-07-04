@@ -145,3 +145,22 @@ class C_S_linkedlist:
                         h.next = root
                         break
                 self.head = root
+
+    def del_at_ending(self):
+        t = self.tail
+        if not t:
+            print(f"{self.name} : Linked List is already Empty!")
+        elif t.prev == self.tail:
+            self.head = None
+            self.tail = None
+            print(f"{self.name} : Linked List is made Empty!")
+        else:
+            root = t.prev
+            root.next = t.next
+            while t.prev:
+                if t.prev != self.tail:
+                    t = t.prev
+                else:
+                    t.prev = root
+                    break
+            self.tail = root
