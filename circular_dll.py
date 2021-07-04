@@ -164,3 +164,25 @@ class C_S_linkedlist:
                     t.prev = root
                     break
             self.tail = root
+
+    def del_node(self,x):
+        h = self.head
+        t = self.tail
+        if not t:
+            print(f"{self.name} : Linked List is already Empty!")
+        else:
+            if h.data == x:
+                self.del_at_starting()
+            elif t.data == x:
+                self.del_at_ending()
+            else:
+                while h.next:
+                    if h.next.data == x:
+                        h.next.next.prev = h.next.prev
+                        h.next = h.next.next
+                        break
+                    elif h.next.data != x and h.next.next == self.head:
+                        print(f"{self.name} : {x} is not in the Linked List!")
+                        break
+                    else:
+                        h = h.next
